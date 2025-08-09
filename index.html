@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Basic SEO -->
+    <title>DUET Admission Test Seat Plan 2025 - Unofficial Checker</title>
+    <meta name="description" content="Check your DUET Admission Test 2025 seat plan by roll number. This is an unofficial tool — please verify from the official PDF.">
+    <meta name="keywords" content="DUET, Dhaka University of Engineering & Technology, Admission Test, Seat Plan, 2025, Roll Number, Checker">
+    <meta name="author" content="Mohatamim">
+
+    <!-- Open Graph (Facebook, LinkedIn) -->
+    <meta property="og:title" content="DUET Admission Test Seat Plan 2025 - Unofficial Checker">
+    <meta property="og:description" content="Find your DUET Admission Test 2025 seat plan easily by roll number. Verify details from the official PDF.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://admission.duetbd.org/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DUET Admission Test Seat Plan 2025 - Unofficial Checker">
+    <meta name="twitter:description" content="Quickly check your DUET Admission Test seat plan. Verify from the official PDF.">
+
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 15px 10px;
+            text-align: center;
+        }
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .note a {
+            color: #0056b3;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+        }
+        .form-group input:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 4px rgba(0,123,255,0.4);
+        }
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 17px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        .result {
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            display: none;
+        }
+        .result-header {
+            background: #007BFF;
+            color: white;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .result-body {
+            background: #f8f9fa;
+            padding: 15px;
+        }
+        .result-body p {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 30px;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>DUET Admission Test 2025</h1>
+    <h2>Seat Plan Checker</h2>
+</header>
+
+<div class="container">
+    <div class="note">
+        <strong>Note:</strong> This is an <u>unofficial</u> site. For confirmation, always check the 
+        <a href="2025-08-09_1754710197_109.pdf" target="_blank">official seat plan PDF</a>.
+    </div>
+
+    <div class="warning">
+        📵 Mobile phones & any other devices capable of data transfer are <strong>not allowed</strong> in the examination hall.
+    </div>
+
+    <div class="form-group">
+        <label for="rollInput">Enter Your Roll Number:</label>
+        <input type="number" id="rollInput" placeholder="e.g., 10001">
+    </div>
+    <div class="form-group">
+        <button onclick="findSeat()">Search</button>
+    </div>
+
+    <div class="error" id="errorMsg">Roll number not found. Please check again.</div>
+
+    <div id="result" class="result">
+        <div class="result-header">Your Seat Details</div>
+        <div class="result-body">
+            <p><strong>Date:</strong> <span id="date"></span></p>
+            <p><strong>Shift:</strong> <span id="shift"></span></p>
+            <p><strong>Time:</strong> <span id="time"></span></p>
+            <p><strong>Department:</strong> <span id="department"></span></p>
+            <p><strong>Building:</strong> <span id="building"></span></p>
+            <p><strong>Room:</strong> <span id="room"></span></p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    Developed by <strong><a href="https://facebook.com/Mohatamim44" target="_blank" style="color:inherit;text-decoration: none;">Mohatamim</a></strong>
+</footer>
+
+
+<script>
+    // Keep your full seatData object here
+ const seatData = {
+        "1st_shift": {
+            "time": "09:30 AM to 12:00 PM",
+            "buildings": {
+                "Old Academic Building (OAB)": {
+                    "departments": ["CE"],
+                    "seat_ranges": {
+                        "301": [10001, 10030],
+                        "302": [10031, 10060],
+                        "305": [10061, 10124],
+                        "311": [10125, 10204],
+                        "314": [10205, 10268],
+                        "315": [10269, 10332],
+                        "318": [10333, 10396],
+                        "401": [10397, 10428],
+                        "402": [10429, 10458],
+                        "405": [10459, 10522],
+                        "409(A)": [10523, 10552],
+                        "409(B)": [10553, 10582],
+                        "412": [10583, 10646],
+                        "413": [10647, 10710],
+                        "418": [10711, 10774],
+                        "430 Lab": [10775, 10834]
+                    }
+                },
+                "Shahid Syed Nazrul Islam Academic Building (SSNIAB)": {
+                    "departments": ["CE", "ME/IPE/MME"],
+                    "seat_ranges": {
+                        "2002": [10835, 10888],
+                        "2006": [10889, 10928],
+                        "2008": [10929, 10966],
+                        "2010": [10967, 11004],
+                        "2012": [11005, 11060],
+                        "2029": [11061, 11120],
+                        "3006": [11121, 11158],
+                        "3010": [11159, 11191],
+                        "3012": [11192, 11247],
+                        "3031": [11248, 11299],
+                        "4004": [11300, 11329],
+                        "4010": [11330, 11359],
+                        "5004": [11360, 11389],
+                        "5005": [11390, 11449],
+                        "5017": [11450, 11470],
+                        "6004 (A)": [13234, 13287],
+                        "6005": [13288, 13326],
+                        "6006 (B)": [13327, 13365],
+                        "6017": [13366, 13437],
+                        "7019 (A)": [13438, 13475],
+                        "7019 (B)": [13476, 13513],
+                        "7026": [13514, 13573],
+                        "8009": [13574, 13629],
+                        "8010": [13630, 13704],
+                        "8020": [13705, 13760],
+                        "8026": [13761, 13820],
+                        "9011": [13821, 13895],
+                        "9017": [13896, 13949],
+                        "9018": [13950, 14009],
+                        "11002": [14010, 14069],
+                        "11008": [14070, 14107],
+                        "11009": [14108, 14149],
+                        "11010": [14150, 14209],
+                        "10th Floor Open Space": [14210, 14249]
+                    }
+                },
+                "Textile Workshop Building (TWB)": {
+                    "departments": ["ME/IPE/MME", "TE", "Arch"],
+                    "seat_ranges": {
+                        "Fabric Lab (Ground Floor)": [14250, 14309],
+                        "Yarn Lab (Ground Floor)": {
+                            "ME/IPE/MME": [14310, 14339],
+                            "TE": [15114, 15183]
+                        },
+                        "Wet Lab (Ground Floor)": [15184, 15258],
+                        "201": [15259, 15312],
+                        "218": [15313, 15357],
+                        "313": [15358, 15402],
+                        "315": {
+                            "TE": [15403, 15422],
+                            "Arch": [15423, 15437]
+                        },
+                        "316": [15438, 15472],
+                        "317": [15473, 15507],
+                        "318": [15508, 15541]
+                    }
+                }
+            }
+        },
+        "2nd_shift": {
+            "time": "02:00 PM to 4:30 PM",
+            "buildings": {
+                "Old Academic Building (OAB)": {
+                    "departments": ["EEE"],
+                    "seat_ranges": {
+                        "301": [11471, 11500],
+                        "302": [11501, 11530],
+                        "305": [11531, 11594],
+                        "311": [11595, 11674],
+                        "314": [11675, 11738],
+                        "315": [11739, 11802],
+                        "318": [11803, 11866],
+                        "401": [11867, 11898],
+                        "402": [11899, 11928],
+                        "405": [11929, 11992],
+                        "409(A)": [11993, 12022],
+                        "409(B)": [12023, 12052],
+                        "412": [12053, 12116],
+                        "413": [12117, 12180],
+                        "418": [12181, 12244],
+                        "430 Lab": [12245, 12304]
+                    }
+                },
+                "Shahid Syed Nazrul Islam Academic Building (SSNIAB)": {
+                    "departments": ["EEE", "CSE", "ChE"],
+                    "seat_ranges": {
+                        "2002": [12305, 12358],
+                        "2006": [12359, 12398],
+                        "2008": [12399, 12436],
+                        "2010": [12437, 12474],
+                        "2012": [12475, 12530],
+                        "2029": [12531, 12590],
+                        "1st Floor Open Space": [12591, 12630],
+                        "3006": [12631, 12668],
+                        "3010": [12669, 12701],
+                        "3012": [12702, 12757],
+                        "3031": [12758, 12809],
+                        "2nd Floor Open Space": [12810, 12849],
+                        "4004": [12850, 12879],
+                        "4010": [12880, 12909],
+                        "5004": [12910, 12939],
+                        "5005": [12940, 12999],
+                        "5017": [13000, 13029],
+                        "6004 (A)": [13030, 13083],
+                        "6005": [13084, 13122],
+                        "6006 (B)": [13123, 13161],
+                        "6017": [13162, 13233],
+                        "7019 (A)": [14340, 14377],
+                        "7019 (B)": [14378, 14415],
+                        "7026": [14416, 14475],
+                        "6th Floor Open Space": [14476, 14515],
+                        "8009": [14516, 14571],
+                        "8010": [14572, 14646],
+                        "8020": [14647, 14702],
+                        "8026": [14703, 14762],
+                        "7th Floor Open Space": [14763, 14802],
+                        "9005": [14803, 14851],
+                        "9011": [14852, 14926],
+                        "9016 (A)": [14927, 14959],
+                        "9016 (B)": [14960, 14992],
+                        "9017": [14993, 15046],
+                        "9018": [15047, 15106],
+                        "8th Floor Open Space": {
+                            "CSE": [15107, 15113],
+                            "ChE": [15542, 15574]
+                        },
+                        "11002": [15575, 15634],
+                        "11008": [15635, 15672],
+                        "11009": [15673, 15714],
+                        "11010": [15715, 15774],
+                        "10th Floor Open Space": [15775, 15814]
+                    }
+                },
+                "Textile Workshop Building (TWB)": {
+                    "departments": ["ChE", "FE"],
+                    "seat_ranges": {
+                        "Fabric Lab (Ground Floor)": [15815, 15874],
+                        "Yarn Lab (Ground Floor)": [15875, 15974],
+                        "Wet Lab (Ground Floor)": [15975, 16049],
+                        "201": [16050, 16103],
+                        "218": [16104, 16148],
+                        "313": [16149, 16193],
+                        "315": [16194, 16228],
+                        "316": [16229, 16263],
+                        "317": [16264, 16298],
+                        "318": {
+                            "ChE": [16299, 16332],
+                            "FE": [16333, 16343]
+                        },
+                        "411": [16344, 16383],
+                        "619": [16384, 16423]
+                    }
+                }
+            }
+        }
+    };
+
+    function findSeat() {
+        const roll = parseInt(document.getElementById('rollInput').value);
+        const errorMsg = document.getElementById('errorMsg');
+        const resultDiv = document.getElementById('result');
+        const dateSpan = document.getElementById('date');
+        const shiftSpan = document.getElementById('shift');
+        const timeSpan = document.getElementById('time');
+        const departmentSpan = document.getElementById('department');
+        const buildingSpan = document.getElementById('building');
+        const roomSpan = document.getElementById('room');
+
+        errorMsg.style.display = 'none';
+        resultDiv.style.display = 'none';
+
+        if (isNaN(roll)) {
+            errorMsg.textContent = "Please enter a valid roll number.";
+            errorMsg.style.display = 'block';
+            return;
+        }
+
+        let found = false;
+
+        for (const shiftKey in seatData) {
+            const shift = seatData[shiftKey];
+            for (const buildingName in shift.buildings) {
+                const building = shift.buildings[buildingName];
+                for (const roomName in building.seat_ranges) {
+                    const ranges = building.seat_ranges[roomName];
+
+                    if (Array.isArray(ranges) && !Array.isArray(ranges[0])) {
+                        if (roll >= ranges[0] && roll <= ranges[1]) {
+                            dateSpan.textContent = "10-08-2025";
+                            shiftSpan.textContent = shiftKey.replace('_', ' ').toUpperCase();
+                            timeSpan.textContent = shift.time;
+                            departmentSpan.textContent = building.departments.join(', ');
+                            buildingSpan.textContent = buildingName;
+                            roomSpan.textContent = roomName;
+                            resultDiv.style.display = 'block';
+                            found = true;
+                            break;
+                        }
+                    } else if (typeof ranges === 'object' && !Array.isArray(ranges)) {
+                        for (const dept in ranges) {
+                            const deptRange = ranges[dept];
+                            if (roll >= deptRange[0] && roll <= deptRange[1]) {
+                                dateSpan.textContent = "10-08-2025";
+                                shiftSpan.textContent = shiftKey.replace('_', ' ').toUpperCase();
+                                timeSpan.textContent = shift.time;
+                                departmentSpan.textContent = dept;
+                                buildingSpan.textContent = buildingName;
+                                roomSpan.textContent = roomName;
+                                resultDiv.style.display = 'block';
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (found) break;
+                }
+                if (found) break;
+            }
+            if (found) break;
+        }
+
+        if (!found) {
+            errorMsg.textContent = "Roll number not found. Please check again.";
+            errorMsg.style.display = 'block';
+        }
+    }
+
+    document.getElementById('rollInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            findSeat();
+        }
+    });
+</script>
+
+</body>
+</html>

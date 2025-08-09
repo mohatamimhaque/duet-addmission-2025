@@ -210,7 +210,7 @@
     Developed by <strong><a href="https://facebook.com/Mohatamim44" target="_blank" style="color:inherit;text-decoration: none;">Mohatamim</a></strong>
 </footer>
 
-
+Visitor count: <span id="visitorCount">Loading...</span>
 <script>
     // Keep your full seatData object here
  const seatData = {
@@ -473,10 +473,28 @@
             findSeat();
         }
     });
+
+
+
+    async function updateVisitorCount() {
+    try {
+      const response = await fetch('visitors.php');
+      if (!response.ok) throw new Error('Network response was not ok');
+      const countText = await response.text();
+      document.getElementById('visitorCount').innerText = countText;
+    } catch (error) {
+      console.error('Error fetching visitor count:', error);
+      document.getElementById('visitorCount').innerText = 'Error loading visitor count';
+    }
+  }
+
+  // Call it on page load
+  updateVisitorCount();
 </script>
 
 </body>
 </html>
+
 
 
 

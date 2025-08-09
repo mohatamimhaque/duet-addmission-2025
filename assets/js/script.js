@@ -1,8 +1,17 @@
 const buildingCoords = {
-    "Old Academic Building (OAB)": [24.01674997397732, 90.41898429609469],
+    "Old Academic Building (OAB)": [24.01799580179727, 90.4178142637178],
     "Shahid Syed Nazrul Islam Academic Building (SSNIAB)": [24.017184360247807, 90.4190504720577],
-    "Textile Workshop Building (TWB)": [24.01799580179727, 90.4178142637178],
+    "Textile Workshop Building (TWB)": [24.01674997397732, 90.41898429609469],
 };
+
+let map, marker;
+
+const buildingImages = {
+    "Old Academic Building (OAB)": "img/oab.jpg",
+    "Shahid Syed Nazrul Islam Academic Building (SSNIAB)": "img/ssniab.jpeg",
+    "Textile Workshop Building (TWB)": "img/twb.jpg"
+};
+
 
 const seatData = {
     "1st_shift": {
@@ -189,13 +198,6 @@ const seatData = {
     }
 };
 
-let map, marker;
-
-const buildingImages = {
-    "Old Academic Building (OAB)": "img/oab.jpg",
-    "Shahid Syed Nazrul Islam Academic Building (SSNIAB)": "img/ssniab.jpeg",
-    "Textile Workshop Building (TWB)": "img/twb.jpg"
-};
 
 function findSeat() {
     const roll = parseInt(document.getElementById('rollInput').value);

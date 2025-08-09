@@ -203,7 +203,6 @@ function findSeat() {
     const roll = parseInt(document.getElementById('rollInput').value);
     const errorMsg = document.getElementById('errorMsg');
     const resultDiv = document.getElementById('result');
-    const id = document.getElementById('id');
     const dateSpan = document.getElementById('date');
     const shiftSpan = document.getElementById('shift');
     const timeSpan = document.getElementById('time');
@@ -272,7 +271,6 @@ function findSeat() {
     }
 
 
-    id.textContent = roll;
     dateSpan.textContent = "10-08-2025";
     shiftSpan.textContent = foundShift;
     timeSpan.textContent = foundTime;
@@ -331,5 +329,78 @@ window.addEventListener('DOMContentLoaded', function() {
     if (rollInput.value.trim() !== '') {
         findSeat();
     }
-
 });
+
+
+
+const firebaseConfig = {
+      apiKey: "AIzaSyA2JVIU5pAz7X2XILLR2Pbi_MhbeKHnimY",
+      authDomain: "seat-plan-40c62.firebaseapp.com",
+      databaseURL: "https://seat-plan-40c62-default-rtdb.firebaseio.com",
+      projectId: "seat-plan-40c62",
+      storageBucket: "seat-plan-40c62.firebasestorage.app",
+      messagingSenderId: "274242756368",
+      appId: "1:274242756368:web:9ce231aa977202e63ccf95",
+      measurementId: "G-GGEZDZQZLL"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    const countRef = db.ref("visitors");
+
+    countRef.transaction(current => {
+      return (current || 0) + 1;
+    });
+
+const counters = document.querySelectorAll('.counter');
+
+
+var prev=0,count=0,temp=0,dx,px;
+
+countRef.on("value", snapshot => {
+  count = snapshot.val() || 0;
+});
+
+
+
+
+setInterval(() => {
+    temp = count;
+  if(prev != count){
+      for (let i = 4; i >= 0; i--) {
+        const el = counters[i];
+        dx = count % 10;
+        count = Math.floor(count / 10);
+        px = parseInt(el.querySelector(`span:first-child`).textContent);
+        if(px == dx){
+            continue;
+        }
+        const newDigit = document.createElement('span');
+        newDigit.textContent = dx;
+        newDigit.style.transform = 'translateY(100%)';
+        el.appendChild(newDigit);
+    
+        const oldSpan = el.querySelector('span:first-child');
+    
+        if (oldSpan) {
+          oldSpan.style.transform = 'translateY(-100%)';
+        }
+    
+        requestAnimationFrame(() => {
+          newDigit.style.transform = 'translateY(0)';
+        });
+    
+        if (oldSpan) {
+          oldSpan.addEventListener('transitionend', () => {
+            if (oldSpan.parentNode) {
+              oldSpan.parentNode.removeChild(oldSpan);
+            }
+          }, { once: true });
+        }
+      }
+  }
+
+  prev = count;
+})
+

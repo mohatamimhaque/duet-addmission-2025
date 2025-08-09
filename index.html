@@ -188,7 +188,7 @@
             <p><strong>Date:</strong> <span id="date"></span></p>
             <p><strong>Shift:</strong> <span id="shift"></span></p>
             <p><strong>Time:</strong> <span id="time"></span></p>
-            <p><strong>Department:</strong> <span id="department"></span></p>
+<!--             <p><strong>Department:</strong> <span id="department"></span></p> -->
             <p><strong>Building:</strong> <span id="building"></span></p>
             <p><strong>Room:</strong> <span id="room"></span></p>
         </div>
@@ -394,7 +394,7 @@
         const dateSpan = document.getElementById('date');
         const shiftSpan = document.getElementById('shift');
         const timeSpan = document.getElementById('time');
-        const departmentSpan = document.getElementById('department');
+        // const departmentSpan = document.getElementById('department');
         const buildingSpan = document.getElementById('building');
         const roomSpan = document.getElementById('room');
 
@@ -421,7 +421,7 @@
                             dateSpan.textContent = "10-08-2025";
                             shiftSpan.textContent = shiftKey.replace('_', ' ').toUpperCase();
                             timeSpan.textContent = shift.time;
-                            departmentSpan.textContent = building.departments.join(', ');
+                            // departmentSpan.textContent = building.departments.join(', ');
                             buildingSpan.textContent = buildingName;
                             roomSpan.textContent = roomName;
                             resultDiv.style.display = 'block';
@@ -435,7 +435,7 @@
                                 dateSpan.textContent = "10-08-2025";
                                 shiftSpan.textContent = shiftKey.replace('_', ' ').toUpperCase();
                                 timeSpan.textContent = shift.time;
-                                departmentSpan.textContent = dept;
+                                // departmentSpan.textContent = dept;
                                 buildingSpan.textContent = buildingName;
                                 roomSpan.textContent = roomName;
                                 resultDiv.style.display = 'block';
@@ -466,3 +466,4 @@
 
 </body>
 </html>
+

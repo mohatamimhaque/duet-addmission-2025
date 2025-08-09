@@ -358,15 +358,12 @@ const counters = document.querySelectorAll('.counter');
 
 var prev=0,count=0,temp=0,dx,px;
 
-countRef.on("value", snapshot => {
-  count = snapshot.val() || 0;
-});
-
-
-
-
+setTimeout(() => {
 setInterval(() => {
-    temp = count;
+    countRef.on("value", snapshot => {
+      count = snapshot.val() || 0;
+    });
+  temp = count;
   if(prev != count){
       for (let i = 4; i >= 0; i--) {
         const el = counters[i];
@@ -403,4 +400,7 @@ setInterval(() => {
 
   prev = count;
 })
+
+},1000);
+
 

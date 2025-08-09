@@ -488,11 +488,20 @@ Visitor count: <span id="visitorCount">Loading...</span>
     }
   }
 
-  // Call it on page load
+  // Send a request to visitors.php just to update count silently
+fetch('visitors.php')
+  .then(() => {
+    // No need to do anything on success
+  })
+  .catch(() => {
+    // Optional: handle errors silently
+  });
+
 </script>
 
 </body>
 </html>
+
 
 
 

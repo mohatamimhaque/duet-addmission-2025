@@ -203,6 +203,7 @@ function findSeat() {
     const roll = parseInt(document.getElementById('rollInput').value);
     const errorMsg = document.getElementById('errorMsg');
     const resultDiv = document.getElementById('result');
+    const id = document.getElementById('id');
     const dateSpan = document.getElementById('date');
     const shiftSpan = document.getElementById('shift');
     const timeSpan = document.getElementById('time');
@@ -271,6 +272,7 @@ function findSeat() {
     }
 
 
+    id.textContent = roll;
     dateSpan.textContent = "10-08-2025";
     shiftSpan.textContent = foundShift;
     timeSpan.textContent = foundTime;
@@ -329,4 +331,5 @@ window.addEventListener('DOMContentLoaded', function() {
     if (rollInput.value.trim() !== '') {
         findSeat();
     }
+
 });

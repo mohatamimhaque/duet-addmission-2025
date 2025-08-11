@@ -145,8 +145,10 @@ async function find_result() {
     }
   }
 
-
-   updateVisitorCount();
+  const userIP = await getUserIP();
+  const analytics = await getFullUserAnalytics();
+  
+  updateVisitorCount();
   incrementSearchCount();
   await incrementUserSearchCount(userIP);
 
@@ -157,8 +159,7 @@ async function find_result() {
     return;
   }
 
-  const userIP = await getUserIP();
-  const analytics = await getFullUserAnalytics();
+
 
   // Update counts
 
@@ -278,6 +279,7 @@ setInterval(() => {
 setTimeout(() => {
   console.clear();
 }, 2000);
+
 
 
 

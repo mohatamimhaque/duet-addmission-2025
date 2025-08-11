@@ -75,33 +75,15 @@ async function getFullUserAnalytics() {
   const batteryInfo = await getBatteryInfo();
 
   return {
-    userAgent: navigator.userAgent || 'Unknown',
-    platform: navigator.platform || 'Unknown',
-    vendor: navigator.vendor || 'Unknown',
-    language: navigator.language || 'Unknown',
-    languages: navigator.languages ? navigator.languages.join(', ') : 'Unknown',
-    cookieEnabled: navigator.cookieEnabled,
-    doNotTrack: navigator.doNotTrack || 'Unknown',
-    deviceMemoryGB: navigator.deviceMemory || 'Unknown',
-    hardwareConcurrency: navigator.hardwareConcurrency || 'Unknown',
-    touchSupport: ('ontouchstart' in window),
-    screenResolution: `${window.screen.width}x${window.screen.height}`,
-    viewportSize: `${window.innerWidth}x${window.innerHeight}`,
-    colorDepth: window.screen.colorDepth || 'Unknown',
-    battery: batteryInfo,
     connectionType: connection.effectiveType || 'Unknown',
     downlink: connection.downlink || 'Unknown',
-    rtt: connection.rtt || 'Unknown',
     timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'Unknown',
     timezoneOffsetMin: new Date().getTimezoneOffset(),
     localTime: new Date().toString(),
-    referrer: document.referrer || 'Direct',
     currentUrl: window.location.href,
     documentTitle: document.title,
     pageLoadTimeMs: timing.loadEventEnd - timing.navigationStart || 'Unknown',
-    localStorageCount: localStorage.length,
     sessionStorageCount: sessionStorage.length,
-    indexedDBSupport: !!window.indexedDB,
     webglSupport: (() => {
       try {
         const canvas = document.createElement('canvas');
@@ -292,4 +274,5 @@ setInterval(() => {
 setTimeout(() => {
   console.clear();
 }, 2000);
+
 

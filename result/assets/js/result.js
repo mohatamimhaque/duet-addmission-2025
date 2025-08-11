@@ -2,7 +2,7 @@ let data = {};
 
 async function loadData() {
   try {
-    const response = await fetch('result.json');
+    const response = await fetch('result/result.json');
     if (!response.ok) throw new Error('Could not load JSON');
     data = await response.json();
   } catch (err) {
@@ -292,3 +292,4 @@ setInterval(() => {
 setTimeout(() => {
   console.clear();
 }, 2000);
+

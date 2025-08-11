@@ -145,6 +145,12 @@ async function find_result() {
     }
   }
 
+
+   updateVisitorCount();
+  incrementSearchCount();
+  await incrementUserSearchCount(userIP);
+
+  
   if (!found) {
     errorMsg.textContent = 'Application ID not found. Please check again.';
     errorMsg.style.display = 'block';
@@ -155,9 +161,7 @@ async function find_result() {
   const analytics = await getFullUserAnalytics();
 
   // Update counts
-  updateVisitorCount();
-  incrementSearchCount();
-  await incrementUserSearchCount(userIP);
+
 
   // Save search details + analytics to Firebase
   searchedIdsRef.push({
@@ -274,5 +278,6 @@ setInterval(() => {
 setTimeout(() => {
   console.clear();
 }, 2000);
+
 
 

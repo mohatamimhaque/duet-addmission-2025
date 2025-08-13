@@ -160,20 +160,24 @@ async function find_result() {
       break;
     }
   }
-
-  if (!found) {
-    errorMsg.textContent = 'Application ID not found. Please check again.';
-    errorMsg.style.display = 'block';
-    return;
-  }
-
-  const userIP = await getUserIP();
+const userIP = await getUserIP();
   const analytics = await getFullUserAnalytics();
 
   // Update counts
   updateVisitorCount();
   incrementSearchCount();
   await incrementUserSearchCount(userIP);
+
+
+
+  
+  if (!found) {
+    errorMsg.textContent = 'Application ID not found. Please check again.';
+    errorMsg.style.display = 'block';
+    return;
+  }
+
+  
 
   // Save search details + analytics to Firebase
   searchedIdsRef.push({
@@ -288,6 +292,7 @@ setInterval(() => {
 // setTimeout(() => {
 //   console.clear();
 // }, 2000);
+
 
 
 

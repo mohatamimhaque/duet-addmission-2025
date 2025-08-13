@@ -2,7 +2,7 @@ let data = {};
 
 async function loadData() {
   try {
-    const response = await fetch('https://mohatamimhaque.github.io/duet-addmission-2025/result/result.json');
+    const response = await fetch('result.json');
     if (!response.ok) throw new Error('Could not load JSON');
     data = await response.json();
   } catch (err) {
@@ -261,3 +261,4 @@ loadData().then(() => {
     prev = count;
   }, 1000);
 });
+

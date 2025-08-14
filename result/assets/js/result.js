@@ -166,7 +166,7 @@ loadData().then(() => {
 
     if (!found) {
       errorMsg.textContent = 'Application ID not found. Please check again.';
-      errorMsg.textContent = 'We are currently updating the website. Please try again later.';
+      // errorMsg.textContent = 'We are currently updating the website. Please try again later.';
       errorMsg.style.display = 'block';
       return;
     }
@@ -262,6 +262,7 @@ loadData().then(() => {
     prev = count;
   }, 1000);
 });
+
 
 
 

@@ -209,16 +209,35 @@ function findSeat() {
     const buildingSpan = document.getElementById('building');
     const roomSpan = document.getElementById('room');
     const mapDiv = document.getElementById('map');
+    
+    // Get button elements for loading state
+    const button = document.querySelector('.search-btn');
+    const btnText = document.querySelector('.btn-text');
+    const btnLoading = document.querySelector('.btn-loading');
+    
+    // Show loading state
+    button.classList.add('loading');
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline';
+    button.disabled = true;
 
     errorMsg.style.display = 'none';
     resultDiv.style.display = 'none';
     mapDiv.style.display = 'none';
-
+    
     if (!roll || roll <= 0) {
         errorMsg.textContent = 'Please enter a valid roll number.';
         errorMsg.style.display = 'block';
+        // Reset loading state
+        button.classList.remove('loading');
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+        button.disabled = false;
         return;
     }
+    
+    // Add artificial delay for better UX
+    setTimeout(() => {
 
     let found = false;
     let foundShift = '';
@@ -267,8 +286,7 @@ function findSeat() {
     if (!found) {
         errorMsg.textContent = "Roll number not found. Please check again.";
         errorMsg.style.display = "block";
-        return;
-    }
+    } else {
 
 
     dateSpan.textContent = "10-08-2025";
@@ -296,6 +314,15 @@ function findSeat() {
         marker.setLatLng(buildingCoords[foundBuilding] || [24.017, 90.418]);
         marker.setPopupContent(`<b>${foundBuilding}</b><br>${foundRoom}`).openPopup();
     }
+    } // End else block
+    
+    // Reset loading state
+    button.classList.remove('loading');
+    btnText.style.display = 'inline';
+    btnLoading.style.display = 'none';
+    button.disabled = false;
+    
+    }, 800); // End setTimeout
 }
 
 

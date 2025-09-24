@@ -38,15 +38,24 @@
     </header>
     <div class="container">
       <div class="note">
-        <strong>Note:</strong> This is an <u>unofficial</u> site. For confirmation, always check the <a href="2025-08-09_1754710197_109.pdf" target="_blank">official seat plan PDF</a>.
+        <strong>📋 Note:</strong> This is an <u>unofficial</u> site. For confirmation, always check the <a href="2025-08-09_1754710197_109.pdf" target="_blank">official seat plan PDF</a>.
       </div>
       <div class="warning"> 📵 Mobile phones & any other devices capable of data transfer are <strong>not allowed</strong> in the examination hall. </div>
+      
+      <div class="quick-links">
+        <a href="result/" class="quick-link">📊 Check Results</a>
+        <a href="2025-08-09_1754710197_109.pdf" target="_blank" class="quick-link">📄 Official PDF</a>
+      </div>
+      
       <div class="form-group">
-        <label for="rollInput">Enter Your Roll Number:</label>
-        <input type="number" id="rollInput" placeholder="e.g., 10001" />
+        <label for="rollInput">🎯 Enter Your Roll Number:</label>
+        <input type="number" id="rollInput" placeholder="e.g., 10001" onkeypress="if(event.key==='Enter') findSeat()" />
       </div>
       <div class="form-group">
-        <button onclick="findSeat()">Search</button>
+        <button onclick="findSeat()" class="search-btn">
+          <span class="btn-text">🔍 Search Seat</span>
+          <span class="btn-loading" style="display: none;">⏳ Searching...</span>
+        </button>
       </div>
       <div class="error" id="errorMsg">Roll number not found. Please check again.</div>
       <div id="result" class="result">
